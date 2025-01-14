@@ -1,29 +1,18 @@
 package org.tasks;
 
-import com.google.gson.Gson;
-import com.mysql.cj.protocol.Resultset;
-import gfg.src.ConnectionDB;
-
-import java.io.FileWriter;
-import java.io.IOException;
+import db.src.ConnectionDB;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
-import java.util.UUID;
 
-import static org.tasks.TaskManagement.*;
 
 public class Main {
 
     public static void main(String[] args) throws SQLException {
 
 
-
-        TaskManagement taskManagement = new TaskManagement();
 
         Scanner leitura = new Scanner(System.in);
 
@@ -101,12 +90,12 @@ public class Main {
                     case 3:
                         String sqlDelete = "DELETE FROM tasks WHERE id = ? ";
                         try(PreparedStatement stmt = conexao.prepareStatement(sqlDelete)) {
-                            System.out.println("Digite o id da task:");
+                            System.out.println("Type the ID of task:");
                             int taskId = leitura.nextInt();
                             stmt.setInt(1, taskId);
 
                             stmt.executeUpdate();
-                            System.out.println("Tarefa de id: " + taskId + " deletada com sucesso!");
+                            System.out.println("Task with ID:" + taskId + "deleted!");
                         }
                         catch (Exception e) {
                             e.printStackTrace();

@@ -1,4 +1,4 @@
-package gfg.src;
+package db.src;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
