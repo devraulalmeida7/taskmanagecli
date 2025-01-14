@@ -1,11 +1,14 @@
 package org.tasks;
 
-public class Task {
-    public Task(int id, String name, String description) {
-    }
+import java.util.UUID;
 
-    int id;
+public class Task {
+    String id;
     String name;
     String description;
+
+    public Task(String id, String name, String description) {
+    }
+
 
 }

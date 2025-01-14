@@ -12,14 +12,14 @@ public class TaskManagement {
     static Gson gson = new Gson();
     static String jsonToString = gson.toJson(tasks);
 
-    public static  void addTask(Task task) {
-        tasks.add(task);
-        System.out.println(jsonToString);
+    public static  void addTask(String sql) {
+
+
     }
     public static void deleteTask(Task task){
         tasks.remove(task);
     }
-    public static void updateTask(int id, String newName, String newDescription) {
+    public static void updateTask(String id, String newName, String newDescription) {
         for(Task task :tasks) {
             if(task.id == id) {
                 if(!newName.isEmpty()){
@@ -33,8 +33,11 @@ public class TaskManagement {
         }
 
     }
+    public  List<Task> getTasks() {
+        return tasks;
+    }
     // Delete a task by  ID
-    public boolean deleteTaskById(int id) {
+    public boolean deleteTaskById(String id) {
         for (int i = 0; i < tasks.size(); i++) {
             if (tasks.get(i).id == id) {
                 tasks.remove(i); // Remove the element at the current index
